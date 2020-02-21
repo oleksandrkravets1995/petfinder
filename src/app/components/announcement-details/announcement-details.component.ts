@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementHttpService } from '../../services/announcement-http.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {UserHttpService} from "../../services/user-http.service";
+import {UserHttpService} from '../../services/user-http.service';
+import {ImagesHttpService} from '../../services/images-http.service';
+
+
 
 @Component({
   selector: 'app-announcement-details',
@@ -14,25 +17,39 @@ export class AnnouncementDetailsComponent implements OnInit {
     private httpAnnouncementService: AnnouncementHttpService,
     private route: ActivatedRoute,
     private router: Router,
-    private httpUser: UserHttpService
+    private httpUser: UserHttpService,
+    private httpImages: ImagesHttpService
   ) { }
 
-  ngOnInit() {
-
-    this.getAnnouncement(this.route.snapshot.paramMap.get('id'));
-    this.getUser(this.currentId)
-  }
   currentAnnouncement = null;
-  currentId = 8;
-  currentUser: any;
+  currentUser = null;
+  currentImage = null;
+  currentID: number;
+
+  ngOnInit() {
+    this.getAnnouncement(this.route.snapshot.paramMap.get('id'));
+    this.getAnnouncementId(this.route.snapshot.paramMap.get('id'));
+  }
 
   getAnnouncement(id) {
     this.httpAnnouncementService.get(id)
       .subscribe(
         data => {
           this.currentAnnouncement = data;
-          this.currentId = this.currentAnnouncement.user_id;
+        },
+        error => {
+          console.log(error);
+        });
+  }
 
+  getAnnouncementId(id) {
+    this.httpAnnouncementService.get(id)
+      .subscribe(
+        data => {
+          this.currentAnnouncement = data;
+          this.currentID = this.currentAnnouncement.user_id;
+          this.getUser(this.currentID);
+          // console.log(this.getImages(1))
         },
         error => {
           console.log(error);
@@ -44,12 +61,21 @@ export class AnnouncementDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentUser = data;
-          console.log(data);
         },
         error => {
           console.log(error);
         });
   }
 
-
+  // getImages(id) {
+  //   this.httpImages.get(id)
+  //     .subscribe(
+  //       data => {
+  //         this.currentImage = data;
+  //         console.log(this.currentImage);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
 }

@@ -1,5 +1,5 @@
 
-<div *ngIf="currentAnnouncement; else empty">
+<div *ngIf="currentAnnouncement">
 
   <div class="container__card">
     <div class="images">
@@ -11,14 +11,14 @@
       <h2>{{ currentAnnouncement.price }}$</h2>
       <p class="desc">{{ currentAnnouncement.description }} </p>
       <div class="container__card-footer">
-        <h3 class="container__card-phone">{{ currentUser.phone }}</h3>
+       <h3 class="container__card-phone">{{ currentUser.phone }}</h3>
         <h3 class="container__card-email">{{ currentUser.email }}</h3>
       </div>
     </div>
   </div>
-</div>
 
-<ng-template #empty>
+</div>
+<div *ngIf="!currentAnnouncement">
   <br />
   <div class="container__card">
     <div class="images">
@@ -29,4 +29,4 @@
       <p class="desc">Probably it doesn't exist.</p>
     </div>
   </div>
-</ng-template>
+</div>

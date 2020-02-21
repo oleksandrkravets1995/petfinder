@@ -1,18 +1,28 @@
+<div class="container">
 <div class="announcement-wrapper">
-  <div class="container">
+
     <h1 class="announcement__title">Announcements</h1>
 
     <div class="announcement__search-wrapper">
+
       <mat-form-field class="announcement__search-input">
         <input matInput placeholder="Search announcement by title"
                [(ngModel)]="title"
                (keyup.enter)="searchTitle()"
         >
       </mat-form-field>
-      <div class="announcement__search-button-wrapper">
-        <button mat-raised-button
-                (click)="searchTitle()">Search</button>
+
+      <div class="announcement__search-button-refresh">
+      <button mat-mini-fab aria-label="Refresh" color="primary"
+      (click)="refreshAnnouncementList()">
+        <mat-icon>refresh</mat-icon>
+      </button>
       </div>
+
+      <div class="announcement__search-button-search">
+        <button mat-raised-button (click)="searchTitle()">Search</button>
+      </div>
+
     </div>
 
 <div class="announcement__list">
@@ -20,17 +30,23 @@
               *ngFor="let announcement of announcements; let i = index"
              >
       <mat-card-header class="announcement__header">
-        <div mat-card-avatar class="announcement__header-image"></div>
+        <div mat-card-avatar >
+          <img class="announcement__header-image" src="{{ announcement.section.avatar }}" alt="avatar">
+        </div>
         <mat-card-title class="announcement__list-title">{{ announcement.title }}</mat-card-title>
         <mat-card-subtitle class="announcement__list-subtitle">
           <a class="announcement__details"
-            href="/announcement/{{ currentAnnouncementId }}"
-          (click)="test(announcement)">
+            routerLink="/announcement/{{ announcement.announcement_id}}"
+          >
             Details
           </a>
         </mat-card-subtitle>
       </mat-card-header>
-      <img class="announcement__image"  mat-card-image src="https://purepng.com/public/uploads/medium/515023081909vuwgucjvi37ke4sxsgi38bohmwvueskzfkd2gegbprpz9pc9z321pllryanukxpe9uxvuxltoszhjmxhlwff3anbuu2x4dcspqa.png" alt="Photo of a Shiba Inu">
+
+      <div class="announcement__image">
+      <img  src="{{ announcement.images[0].image }}" alt="Photo of a Shiba Inu">
+      </div>
+
       <mat-card-content class="announcement__content">
         <h2>{{ announcement.price }}$</h2>
       </mat-card-content>

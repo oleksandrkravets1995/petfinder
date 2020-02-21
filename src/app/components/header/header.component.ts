@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AnnouncementHttpService} from "../../services/announcement-http.service";
+import {AnnouncementHttpService} from '../../services/announcement-http.service';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +7,12 @@ import {AnnouncementHttpService} from "../../services/announcement-http.service"
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    announcements: any;
+
   constructor( private httpService: AnnouncementHttpService) { }
 
-  retrieveAnnouncement() {
+  announcements: any;
 
+  retrieveAnnouncement() {
     this.httpService.getAll()
       .subscribe(
         data => {

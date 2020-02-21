@@ -7,14 +7,9 @@ import { AnnouncementHttpService } from 'src/app/services/announcement-http.serv
 })
 export class AnnouncementComponent implements OnInit {
   announcements: any;
-  currentAnnouncement = null;
-  currentIndex = -1;
   title = '';
-  currentAnnouncementId: any;
 
-  constructor(private httpService: AnnouncementHttpService,
-              ) {
-  }
+  constructor(private httpService: AnnouncementHttpService) {}
 
   ngOnInit() {
     this.retrieveAnnouncement();
@@ -22,12 +17,11 @@ export class AnnouncementComponent implements OnInit {
   }
 
   retrieveAnnouncement() {
-
     this.httpService.getAll()
       .subscribe(
         data => {
           this.announcements = data;
-          console.log(data);
+          console.log( this.announcements);
         },
         error => {
           console.log(error);
@@ -44,11 +38,10 @@ export class AnnouncementComponent implements OnInit {
         error => {
           console.log(error);
         });
-    this.title = "";
   }
 
-  test(announcement) {
-    this.currentAnnouncement = announcement;
-    this.currentAnnouncementId  = this.currentAnnouncement.announcement_id;
+  refreshAnnouncementList() {
+    this.retrieveAnnouncement()
+    this.title = '';
   }
 }
