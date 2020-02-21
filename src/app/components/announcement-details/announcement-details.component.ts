@@ -23,12 +23,12 @@ export class AnnouncementDetailsComponent implements OnInit {
 
   currentAnnouncement = null;
   currentUser = null;
-  currentImage = null;
+  images = null;
   currentID: number;
 
   ngOnInit() {
     this.getAnnouncement(this.route.snapshot.paramMap.get('id'));
-    this.getAnnouncementId(this.route.snapshot.paramMap.get('id'));
+    this.getUserId(this.route.snapshot.paramMap.get('id'));
   }
 
   getAnnouncement(id) {
@@ -36,20 +36,20 @@ export class AnnouncementDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentAnnouncement = data;
+          console.log(this.currentAnnouncement.images[0].image);
         },
         error => {
           console.log(error);
         });
   }
 
-  getAnnouncementId(id) {
+  getUserId(id) {
     this.httpAnnouncementService.get(id)
       .subscribe(
         data => {
           this.currentAnnouncement = data;
           this.currentID = this.currentAnnouncement.user_id;
           this.getUser(this.currentID);
-          // console.log(this.getImages(1))
         },
         error => {
           console.log(error);
@@ -67,15 +67,4 @@ export class AnnouncementDetailsComponent implements OnInit {
         });
   }
 
-  // getImages(id) {
-  //   this.httpImages.get(id)
-  //     .subscribe(
-  //       data => {
-  //         this.currentImage = data;
-  //         console.log(this.currentImage);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
 }

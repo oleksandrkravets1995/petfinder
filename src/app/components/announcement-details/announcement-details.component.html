@@ -3,16 +3,18 @@
 
   <div class="container__card">
     <div class="images">
-      <img src="https://purepng.com/public/uploads/medium/91508178710gmncc0temfpkpfmv0eaflrqpn89mg1adv59kfyhzvv1ywql3tfugqsaddth19wz97agovuhtfxzv50xgva3fja5ztyahcqlvleeo.png" />
+      <img src="{{ currentAnnouncement.images[0].image }}" />
     </div>
     <div class="product">
-      <p>Posted at: {{currentAnnouncement.created_date}}</p>
-      <h1>{{ currentAnnouncement.title }}</h1>
-      <h2>{{ currentAnnouncement.price }}$</h2>
+      <p class="container__data">Posted at: {{currentAnnouncement.created_date}}</p>
+      <h1 class="container__title">{{ currentAnnouncement.title }}</h1>
+      <div class="container__price">
+      <h2>Price: {{ currentAnnouncement.price }}$</h2>
+      </div>
       <p class="desc">{{ currentAnnouncement.description }} </p>
       <div class="container__card-footer">
-       <h3 class="container__card-phone">{{ currentUser.phone }}</h3>
-        <h3 class="container__card-email">{{ currentUser.email }}</h3>
+       <h2 class="container__card-phone">{{ currentUser.phone }} <mat-icon class="container__card-icon"> phone</mat-icon></h2>
+        <h2 class="container__card-email">{{ currentUser.email }} <mat-icon class="container__card-icon"> email</mat-icon></h2>
       </div>
     </div>
   </div>

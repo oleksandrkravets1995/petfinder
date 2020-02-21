@@ -13,9 +13,9 @@
       </mat-form-field>
 
       <div class="announcement__search-button-refresh">
-      <button mat-mini-fab aria-label="Refresh" color="primary"
+      <button mat-mini-fab aria-label="Refresh" color="warn"
       (click)="refreshAnnouncementList()">
-        <mat-icon>refresh</mat-icon>
+        <mat-icon>cancel icon</mat-icon>
       </button>
       </div>
 
@@ -47,7 +47,7 @@
       <img  src="{{ announcement.images[0].image }}" alt="Photo of a Shiba Inu">
       </div>
 
-      <mat-card-content class="announcement__content">
+      <mat-card-content class="announcement__price">
         <h2>{{ announcement.price }}$</h2>
       </mat-card-content>
       <mat-card-footer class="announcement__footer">

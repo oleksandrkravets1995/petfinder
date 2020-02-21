@@ -1,15 +1,15 @@
 .announcement {
-  position: relative;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 5px 5px 15px rgba(#BA7E7E, .5);
   width: 350px;
   min-height: 360px;
-  z-index: 1;
-  margin-bottom: 20px;
+
+  margin: 20px auto 60px;
+
+  font-family: 'Walter Turncoat', cursive;
 
   &__title {
     margin-top: 5px;
     font-size: 3rem;
-    font-family: 'Walter Turncoat', cursive;
     text-align: center;
     text-shadow: 1px 1px 2px black;
   }
@@ -17,6 +17,7 @@
   &__search {
 
     &-wrapper {
+
       margin: 0 auto;
       width: 100%;
       display: flex;
@@ -25,8 +26,9 @@
     }
 
     &-input {
-      width: 300px;
+      width: 400px;
       color: black;
+      font-size: 1.4rem;
       margin-right: 50px;
     }
 
@@ -34,7 +36,6 @@
       margin-right: 50px;
     }
   }
-
 
   &__header {
     display: flex;
@@ -48,13 +49,7 @@
     justify-content: space-between;
     margin-top: 20px;
 
-    &-title {
-      font-family: 'Walter Turncoat', cursive;
-    }
-
-
     &-subtitle {
-      font-family: 'Walter Turncoat', cursive;
       text-align: right;
       font-weight: bold;
       cursor: pointer;
@@ -63,7 +58,7 @@
       text-decoration: underline;
 
       &:hover {
-        text-shadow: 1px 1px 5px black;
+        text-shadow: 1px 1px 5px rgba(#BA7E7E, 0.5);
       }
     }
   }
@@ -84,20 +79,21 @@
     }
   }
 
-
   &__common {
     display: flex;
     align-items: center;
+
   }
   &__header-image {
     width: 100%;
   }
 
-  &__content {
-    padding: 5px;
-    border-bottom: 1px solid black;
+  &__price {
+    padding: 20px 0px;
+    border-bottom: 2px solid rgba(#BA7E7E, 0.5);
     text-align: center;
-    color: green;
+    font-weight: bold;
+    color: rgba(#BA7E7E, 0.9);
   }
 
   &__footer {
@@ -109,9 +105,8 @@
   }
 
   &__date-icon {
-    margin-left: 5px;
+    margin-left: 6px;
   }
-
 }
 
 
