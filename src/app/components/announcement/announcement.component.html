@@ -1,0 +1,78 @@
+<div class="announcement-wrapper">
+  <div class="container">
+    <h1 class="announcement__title">Announcements</h1>
+
+    <div class="announcement__search-wrapper">
+      <mat-form-field class="announcement__search-input">
+        <input matInput placeholder="Search announcement by title"
+               [(ngModel)]="title"
+               (keyup.enter)="searchTitle()"
+        >
+      </mat-form-field>
+      <div class="announcement__search-button-wrapper">
+        <button mat-raised-button
+                (click)="searchTitle()">Search</button>
+      </div>
+    </div>
+
+<div class="announcement__list">
+    <mat-card class="announcement"
+              *ngFor="let announcement of announcements; let i = index"
+             >
+      <mat-card-header class="announcement__header">
+        <div mat-card-avatar class="announcement__header-image"></div>
+        <mat-card-title class="announcement__list-title">{{ announcement.title }}</mat-card-title>
+        <mat-card-subtitle class="announcement__list-subtitle">
+          <a class="announcement__details"
+            href="/announcement/{{ currentAnnouncementId }}"
+          (click)="test(announcement)">
+            Details
+          </a>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img class="announcement__image"  mat-card-image src="https://purepng.com/public/uploads/medium/515023081909vuwgucjvi37ke4sxsgi38bohmwvueskzfkd2gegbprpz9pc9z321pllryanukxpe9uxvuxltoszhjmxhlwff3anbuu2x4dcspqa.png" alt="Photo of a Shiba Inu">
+      <mat-card-content class="announcement__content">
+        <h2>{{ announcement.price }}$</h2>
+      </mat-card-content>
+      <mat-card-footer class="announcement__footer">
+        <h4 class="announcement__common">{{ announcement.location }}<mat-icon> location_on</mat-icon></h4>
+        <h4 class="announcement__common">{{ announcement.created_date }}<mat-icon class="announcement__date-icon">access_time</mat-icon></h4>
+      </mat-card-footer>
+    </mat-card>
+<!--      <div class="announcement__list-card"-->
+<!--           *ngFor="let announcement of announcements; let i = index">-->
+
+<!--      <h2 class="announcement__list-title"> {{ announcement.title }} </h2>-->
+
+<!--        <div class="announcement__list-image">-->
+<!--          <img src="https://purepng.com/public/uploads/medium/2150232161039egneeibxoqtdwiptmbankrms5rmnx7am2fyag5lksfn8yblzxjksp6pdg6mfvbsrza7vqkpnzofbob6vxjpnqpozg231oj276t.png" alt="Avatar" style>-->
+<!--        </div>-->
+
+<!--        <h3 class="announcement__list-price"> {{ announcement.price }}$</h3>-->
+
+<!--        <div class="announcement__list-card-footer">-->
+<!--        <h3 class="announcement__list-location"> {{ announcement.location }} </h3>-->
+<!--        <h3 class="announcement__list-created-date"> {{ announcement.created_date }} </h3>-->
+<!--        </div>-->
+
+
+</div>
+  </div>
+</div>
+
+
+
+<!--<h4>Tutorials List</h4>-->
+<!--<ul >-->
+<!--  <li-->
+<!--    *ngFor="let announcement of announcements; let i = index"-->
+<!--  >-->
+<!--    <h1>{{ announcement.title }}</h1>-->
+<!--    <p>{{announcement.description}}</p>-->
+<!--    <p>{{announcement.price}}$</p>-->
+<!--    <p>{{announcement.status}}</p>-->
+<!--    <p>{{announcement.created_date}}</p>-->
+<!--    <p>{{announcement.location}}</p>-->
+
+<!--  </li>-->
+<!--</ul>-->

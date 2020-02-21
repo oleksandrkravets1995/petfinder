@@ -1,0 +1,110 @@
+.announcement {
+  position: relative;
+  box-shadow: 1px 1px 3px black;
+  width: 280px;
+  height: 360px;
+  z-index: 1;
+  margin-bottom: 20px;
+
+  &__title {
+    margin-top: 5px;
+    font-size: 3rem;
+    font-family: 'Walter Turncoat', cursive;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+  }
+
+  &__search {
+
+    &-wrapper {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-input {
+      width: 300px;
+      color: black;
+      margin-right: 100px;
+    }
+  }
+
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+
+    &-title {
+      font-family: 'Walter Turncoat', cursive;
+    }
+
+
+    &-subtitle {
+      font-family: 'Walter Turncoat', cursive;
+      text-align: right;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 1px;
+      text-decoration: underline;
+
+      &:hover {
+        text-shadow: 1px 1px 5px black;
+      }
+    }
+  }
+  &__details {
+    color: black;
+  }
+
+  &__image {
+    width: 150px;
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__common {
+    display: flex;
+    align-items: center;
+  }
+  &__header-image {
+    background-image: url('https://cdn0.iconfinder.com/data/icons/dog-and-cat-4/64/07-german_shepherd-canine-puppy-pets-avatar-animals-animal-dog-512.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    padding: 5px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: green;
+  }
+
+  &__footer {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__date-icon {
+    margin-left: 5px;
+  }
+
+}
+
+

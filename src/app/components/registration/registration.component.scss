@@ -1,0 +1,49 @@
+.registration {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+  padding: 55px 75px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 7px  black;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__button {
+    width: 30%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 30px;
+    text-transform: uppercase;
+
+    &:hover {
+      box-shadow: 1px 1px 10px  green;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  &__link {
+    font-weight: bold;
+    color: #673ab7;
+    text-decoration: none;
+    padding: 1px;
+
+    &:hover {
+      text-shadow: 1px 1px 5px  #673ab7;
+    }
+  }
+
+}

@@ -1,0 +1,29 @@
+<div class="registration">
+  <h2 class="registration__title">Registration</h2>
+  <mat-form-field appearance="legacy">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Enter your name:">
+    <mat-icon matSuffix>edit</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>E-mail</mat-label>
+    <input matInput placeholder="Enter your email:">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field class="log-in-item">
+    <input matInput placeholder="Enter your password" type="email" [type]="hide ? 'password' : 'text'" />
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <span matPrefix>&nbsp;</span>
+    <input type="tel" matInput placeholder="Telephone">
+    <mat-icon matSuffix>phone</mat-icon>
+  </mat-form-field>
+  <button class="registration__button" mat-raised-button>Sign up</button>
+  <p class="registration__text">Have an account? |
+    <a class="registration__link" href="#">Sign in</a></p>
+</div>

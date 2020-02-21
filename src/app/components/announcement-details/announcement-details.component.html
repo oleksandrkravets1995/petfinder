@@ -1,0 +1,32 @@
+
+<div *ngIf="currentAnnouncement; else empty">
+
+  <div class="container__card">
+    <div class="images">
+      <img src="https://purepng.com/public/uploads/medium/91508178710gmncc0temfpkpfmv0eaflrqpn89mg1adv59kfyhzvv1ywql3tfugqsaddth19wz97agovuhtfxzv50xgva3fja5ztyahcqlvleeo.png" />
+    </div>
+    <div class="product">
+      <p>Posted at: {{currentAnnouncement.created_date}}</p>
+      <h1>{{ currentAnnouncement.title }}</h1>
+      <h2>{{ currentAnnouncement.price }}$</h2>
+      <p class="desc">{{ currentAnnouncement.description }} </p>
+      <div class="container__card-footer">
+        <h3 class="container__card-phone">{{ currentUser.phone }}</h3>
+        <h3 class="container__card-email">{{ currentUser.email }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #empty>
+  <br />
+  <div class="container__card">
+    <div class="images">
+      <img src="https://purepng.com/public/uploads/medium/purepng.com-sign-stoptraffic-signsign-stopnotify-driversstop-signs-1701527614634stobe.png" />
+    </div>
+    <div class="product__error">
+      <h1 class="announcement__error">Cannot access this announcement.</h1>
+      <p class="desc">Probably it doesn't exist.</p>
+    </div>
+  </div>
+</ng-template>

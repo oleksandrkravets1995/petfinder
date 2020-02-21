@@ -1,0 +1,61 @@
+.header {
+  background-color: black;
+  display: flex;
+  color: white;
+  user-select: none;
+  padding: 15px 0;
+  width: 100%;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-family: 'Walter Turncoat', cursive;
+    text-shadow: 3px 3px 15px  rgb(255, 255, 255);
+    transition: all 0.3s ease;
+  }
+    &__link {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        text-shadow:  4px 4px 3px  rgb(255, 255, 255);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+    }
+
+  &__icon {
+    font-size: 4rem;
+  }
+
+  &__auth {
+    display: flex;
+  }
+
+  &__button {
+    text-transform: uppercase;
+
+    :first-child{
+      margin-right: 40px;
+    }
+
+    & a {
+      text-transform: uppercase;
+      font-family: 'Walter Turncoat', cursive;
+    }
+
+    &-link {
+      box-shadow: 1px 1px 10px 5px rgb(255, 255, 255);
+
+      &:hover {
+        box-shadow: 1px 1px 10px 10px rgb(255, 255, 255) ;
+      }
+    }
+  }
+}

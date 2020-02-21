@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <div class="header__title">
+        <a  class="header__link" routerLink="info"
+        >Petfinder</a>
+      </div>
+      <div class="header__icon-wrapper">
+        <a class="header__link" routerLink="announcement"
+        (click)="retrieveAnnouncement()">
+          <mat-icon class="header__icon" >pets</mat-icon>
+        </a>
+      </div>
+      <div class="header__auth">
+        <div class="header__button">
+          <a class="header__button-link" mat-raised-button routerLink="login">Log In</a>
+        </div>
+        <div class="header__button">
+          <a class="header__button-link" mat-raised-button routerLink="registration">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
