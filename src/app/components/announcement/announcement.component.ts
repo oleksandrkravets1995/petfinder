@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementHttpService } from 'src/app/services/announcement-http.service';
+
 @Component({
   selector: 'app-announcement',
   templateUrl: './announcement.component.html',
   styleUrls: ['./announcement.component.scss']
 })
+
 export class AnnouncementComponent implements OnInit {
   announcements: any;
   title = '';

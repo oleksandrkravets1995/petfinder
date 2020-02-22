@@ -1,34 +1,33 @@
 
 <div *ngIf="currentAnnouncement">
 
-  <div class="container__card">
-    <div class="images">
+  <div class="announcement__card">
+    <div class="announcement__card-images">
       <img src="{{ currentAnnouncement.images[0].image }}" />
     </div>
-    <div class="product">
-      <p class="container__data">Posted at: {{currentAnnouncement.created_date}}</p>
-      <h1 class="container__title">{{ currentAnnouncement.title }}</h1>
-      <div class="container__price">
+    <div class="announcement__card-product">
+      <p class="announcement__card-data">Posted at: {{currentAnnouncement.created_date}}</p>
+      <h1 class="announcement__card-title">{{ currentAnnouncement.title }}</h1>
+      <div class="announcement__card-price">
       <h2>Price: {{ currentAnnouncement.price }}$</h2>
       </div>
-      <p class="desc">{{ currentAnnouncement.description }} </p>
-      <div class="container__card-footer">
-       <h2 class="container__card-phone">{{ currentUser.phone }} <mat-icon class="container__card-icon"> phone</mat-icon></h2>
-        <h2 class="container__card-email">{{ currentUser.email }} <mat-icon class="container__card-icon"> email</mat-icon></h2>
+      <p class="announcement__card-description">{{ currentAnnouncement.description }} </p>
+      <div class="announcement__card-footer">
+       <h2 class="announcement__card-phone">{{ currentUser.phone }} <mat-icon class="announcement__card-icon"> phone</mat-icon></h2>
+        <h2 class="announcement__card-email">{{ currentUser.email }} <mat-icon class="announcement__card-icon"> email</mat-icon></h2>
       </div>
     </div>
   </div>
 
 </div>
 <div *ngIf="!currentAnnouncement">
-  <br />
-  <div class="container__card">
-    <div class="images">
+  <div class="announcement__card announcement__card-error">
+    <div class="announcement__card-images-error">
       <img src="https://purepng.com/public/uploads/medium/purepng.com-sign-stoptraffic-signsign-stopnotify-driversstop-signs-1701527614634stobe.png" />
     </div>
-    <div class="product__error">
-      <h1 class="announcement__error">Cannot access this announcement.</h1>
-      <p class="desc">Probably it doesn't exist.</p>
+    <div class="announcement__card-product__error-wrapper">
+      <h1 class="announcement__card-product__error-title">Cannot access this announcement.</h1>
+      <p class="announcement__card-product__error-description">Probably it doesn't exist.</p>
     </div>
   </div>
 </div>

@@ -2,29 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { AnnouncementHttpService } from '../../services/announcement-http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {UserHttpService} from '../../services/user-http.service';
-import {ImagesHttpService} from '../../services/images-http.service';
-
-
 
 @Component({
   selector: 'app-announcement-details',
   templateUrl: './announcement-details.component.html',
   styleUrls: ['./announcement-details.component.scss']
 })
+
 export class AnnouncementDetailsComponent implements OnInit {
+  currentAnnouncement = null;
+  currentUser = null;
+  images = null;
+  currentID: number;
 
   constructor(
     private httpAnnouncementService: AnnouncementHttpService,
     private route: ActivatedRoute,
     private router: Router,
     private httpUser: UserHttpService,
-    private httpImages: ImagesHttpService
   ) { }
-
-  currentAnnouncement = null;
-  currentUser = null;
-  images = null;
-  currentID: number;
 
   ngOnInit() {
     this.getAnnouncement(this.route.snapshot.paramMap.get('id'));
