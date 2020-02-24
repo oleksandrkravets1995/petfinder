@@ -1,0 +1,15 @@
+.add-announcement {
+  margin: 100px auto;
+  min-width: 300px;
+  max-width: 1000px;
+  padding: 55px 75px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 7px  black;
+
+  & button {
+    margin: 0 auto;
+  }
+}

@@ -1,29 +1,57 @@
-<div class="registration">
+<form class="registration" [formGroup]="form" (ngSubmit)="createNewUser()">
+
   <h2 class="registration__title">Registration</h2>
+
   <mat-form-field appearance="legacy">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Enter your name:">
+    <mat-label [ngClass]="{'registration__valid-color': form.get('name').valid && form.get('name').touched}">Name</mat-label>
+    <input matInput placeholder="Enter your name:" formControlName="name" [(ngModel)]="user.name">
     <mat-icon matSuffix>edit</mat-icon>
+    <mat-error *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+      Name cannot be <strong>blank</strong>
+    </mat-error>
   </mat-form-field>
+
   <mat-form-field appearance="legacy">
-    <mat-label>E-mail</mat-label>
-    <input matInput placeholder="Enter your email:">
+    <mat-label [ngClass]="{'registration__valid-color': form.get('email').valid && form.get('email').touched}">Email</mat-label>
+    <input matInput placeholder="Enter your email:" formControlName="email" [(ngModel)]="user.email">
     <mat-icon matSuffix>email</mat-icon>
+<!--    <mat-error *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">-->
+<!--      Please enter a valid email address-->
+<!--    </mat-error>-->
+    <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
+      <span *ngIf="form.get('email').errors['required']">Email cannot be <strong>blank</strong></span>
+      <span *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">Please enter a valid email address</span>
+      <span *ngIf="form.get('email').errors['emailIsUsed']">This email is already <strong>exist</strong></span>
+    </mat-error>
+
   </mat-form-field>
 
   <mat-form-field class="log-in-item">
-    <input matInput placeholder="Enter your password" type="email" [type]="hide ? 'password' : 'text'" />
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
+    <mat-label [ngClass]="{'registration__valid-color': form.get('password').valid && form.get('password').touched}">Password</mat-label>
+    <input matInput placeholder="Enter your password" type="email" [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="user.password"/>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
     </button>
+    <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
+      <span *ngIf="form.get('password').errors['required']">Password cannot be <strong>blank</strong></span>
+      <br>
+      <span *ngIf="form.get('password').errors['lengthError']">Password cannot be less than <strong>{{ charsCount }}</strong> characters</span>
+    </mat-error>
+
   </mat-form-field>
+
   <mat-form-field class="example-full-width">
-    <span matPrefix>&nbsp;</span>
-    <input type="tel" matInput placeholder="Telephone">
+    <mat-label [ngClass]="{'registration__valid-color': form.get('telephone').valid && form.get('telephone').touched}">Telephone</mat-label>
+    <span matPrefix></span>
+    <input type="tel" matInput placeholder="Telephone" formControlName="telephone" [(ngModel)]="user.telephone">
     <mat-icon matSuffix>phone</mat-icon>
+    <mat-error *ngIf="form.get('telephone').hasError('required') && form.get('telephone').touched">
+      Telephone cannot be <strong>blank</strong>
+    </mat-error>
   </mat-form-field>
-  <button class="registration__button" mat-raised-button>Sign up</button>
+
+  <button class="registration__button" mat-raised-button type="submit" [disabled]="form.invalid">Sign up</button>
   <p class="registration__text">Have an account? |
-    <a class="registration__link" href="#">Sign in</a></p>
-</div>
+    <a class="registration__link" routerLink="/login">Sign in</a>
+  </p>
+</form>

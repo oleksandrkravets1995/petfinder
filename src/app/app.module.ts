@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 //Angular materials modules
@@ -48,6 +48,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AnnouncementDetailsComponent } from './components/announcement-details/announcement-details.component';
+import { AddAnnouncementComponent } from './components/add-announcement/add-announcement.component';
 
 
 @NgModule({
@@ -58,12 +59,14 @@ import { AnnouncementDetailsComponent } from './components/announcement-details/
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
-    AnnouncementDetailsComponent
+    AnnouncementDetailsComponent,
+    AddAnnouncementComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   //  Angular materials modules
     BrowserAnimationsModule,

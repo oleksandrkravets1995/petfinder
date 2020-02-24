@@ -32,7 +32,6 @@ export class AnnouncementDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentAnnouncement = data;
-          console.log(this.currentAnnouncement.images[0].image);
         },
         error => {
           console.log(error);

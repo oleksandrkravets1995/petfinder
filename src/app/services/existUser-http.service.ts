@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:8080/api/user';
+const baseUrl = 'http://localhost:8080/api/announcement';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserHttpService {
+export class ExistUserHttpService {
 
   constructor(private http: HttpClient) { }
 

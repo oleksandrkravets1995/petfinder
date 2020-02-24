@@ -1,0 +1,33 @@
+<form class="add-announcement" (ngSubmit)="createAnnouncement()">
+
+  <mat-form-field >
+  <input matInput placeholder="Title" [(ngModel)]="announcement.title" name="title">
+</mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Price" [(ngModel)]="announcement.price" name="price">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Location" [(ngModel)]="announcement.location" name="location">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="image" [(ngModel)]="announcement.image" name="image">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" [(ngModel)]="announcement.description" name="description"></textarea>
+  </mat-form-field>
+
+  <button mat-fab color="primary" type="submit" >Add</button>
+
+<!--  <mat-form-field>-->
+<!--    <mat-select placeholder="Select">-->
+<!--      <mat-option value="option">Cat</mat-option>-->
+<!--      <mat-option value="option">Dog</mat-option>-->
+<!--      <mat-option value="option">Fish</mat-option>-->
+<!--      <mat-option value="option">Parrot</mat-option>-->
+<!--    </mat-select>-->
+<!--  </mat-form-field>-->
+</form>

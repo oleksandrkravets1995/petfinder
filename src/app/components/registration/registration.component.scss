@@ -3,12 +3,10 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   width: 300px;
   padding: 55px 75px;
   border: 1px solid black;
   border-radius: 5px;
-
   display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 7px  black;
@@ -46,4 +44,15 @@
     }
   }
 
+  &__wrong-password {
+    color: red;
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  &__valid-color {
+    color: #8cfc18;
+  }
+
 }
+
