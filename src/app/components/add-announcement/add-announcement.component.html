@@ -1,9 +1,15 @@
+<div *ngIf="!submitted">
 <form class="add-announcement" (ngSubmit)="createAnnouncement()">
 
   <mat-form-field >
   <input matInput placeholder="Title" [(ngModel)]="announcement.title" name="title">
 </mat-form-field>
 
+  <mat-form-field>
+    <mat-select placeholder="Pets" [(ngModel)]="selectedPet" name="selectedPet">
+      <mat-option *ngFor="let pet of pets" [value]="pet.id">{{pet.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Price" [(ngModel)]="announcement.price" name="price">
   </mat-form-field>
@@ -13,21 +19,19 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="image" [(ngModel)]="announcement.image" name="image">
+    <input matInput placeholder="Image" [(ngModel)]="announcement.image" name="image">
   </mat-form-field>
 
   <mat-form-field>
     <textarea matInput placeholder="Description" [(ngModel)]="announcement.description" name="description"></textarea>
   </mat-form-field>
 
-  <button mat-fab color="primary" type="submit" >Add</button>
+  <button mat-fab color="primary" type="submit">Send</button>
 
-<!--  <mat-form-field>-->
-<!--    <mat-select placeholder="Select">-->
-<!--      <mat-option value="option">Cat</mat-option>-->
-<!--      <mat-option value="option">Dog</mat-option>-->
-<!--      <mat-option value="option">Fish</mat-option>-->
-<!--      <mat-option value="option">Parrot</mat-option>-->
-<!--    </mat-select>-->
-<!--  </mat-form-field>-->
 </form>
+</div>
+
+<div class="announcement-sended" *ngIf="submitted">
+  <h2>You send your mail succesfully!</h2>
+  <button mat-flat-button color="primary" (click)="cleanAnnouncementForm()">Add new announcement</button>
+</div>
