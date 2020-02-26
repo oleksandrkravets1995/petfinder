@@ -1,3 +1,4 @@
+<div *ngIf="!submitted">
 <form class="registration" [formGroup]="form" (ngSubmit)="createNewUser()">
 
   <h2 class="registration__title">Registration</h2>
@@ -55,3 +56,10 @@
     <a class="registration__link" routerLink="/login">Sign in</a>
   </p>
 </form>
+</div>
+
+<div class="announcement-registrated" *ngIf="submitted">
+  <h2>You've been registrated succesfully!</h2>
+  <p>Please, check out you email to move on</p>
+</div>
+

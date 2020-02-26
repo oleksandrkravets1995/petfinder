@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AnnouncementHttpService} from '../../services/announcement-http.service';
+import {AnnouncementsHttpService} from '../../services/announcements-http.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,7 @@ import {AnnouncementHttpService} from '../../services/announcement-http.service'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private httpService: AnnouncementHttpService) { }
+  constructor( private httpService: AnnouncementsHttpService) { }
 
   announcements: any;
 

@@ -6,7 +6,7 @@ const baseUrl = 'http://localhost:8080/api/user';
 @Injectable({
   providedIn: 'root'
 })
-export class UserHttpService {
+export class UsersHttpService {
 
   constructor(private http: HttpClient) { }
 

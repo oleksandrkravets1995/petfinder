@@ -5,11 +5,17 @@
   user-select: none;
   padding: 15px 0;
   width: 100%;
+  margin: 0 auto;
 
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: 960px)  {
+      justify-content: space-evenly;
+    }
+
   }
 
   &__title {
@@ -17,6 +23,10 @@
     font-family: 'Walter Turncoat', cursive;
     text-shadow: 3px 3px 15px  rgb(255, 255, 255);
     transition: all 0.3s ease;
+
+    @media only screen and (max-width: 960px)  {
+      display: none;
+    }
   }
     &__link {
       color: white;
@@ -36,6 +46,10 @@
 
   &__auth {
     display: flex;
+
+    @media only screen and (max-width: 960px)  {
+      display: none;
+    }
   }
 
   &__button {
@@ -56,6 +70,27 @@
       &:hover {
         box-shadow: 1px 1px 10px 10px rgb(255, 255, 255) ;
       }
+    }
+
+    &-menu__wrapper {
+      display: none;
+
+      @media only screen and (max-width: 960px)  {
+        display: block;
+      }
+    }
+
+    &-menu__link {
+      text-decoration: none;
+
+      & span {
+        font-family: 'Walter Turncoat', cursive;
+        text-transform: uppercase;
+      }
+    }
+
+    &-menu__button {
+      font-size: 4rem;
     }
   }
 }

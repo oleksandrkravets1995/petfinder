@@ -42,25 +42,28 @@ import {AppRoutingModule} from "./app-routing.module";
 
 //My components
 import { AppComponent } from './app.component';
-import { InfoComponent } from './components/info/info.component';
-import { AnnouncementComponent } from './components/announcement/announcement.component';
+import { InfoPageComponent } from './components/info-page/info-page.component';
+import { AnnouncementListComponent } from './components/announcement-list/announcement-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AnnouncementDetailsComponent } from './components/announcement-details/announcement-details.component';
 import { AddAnnouncementComponent } from './components/add-announcement/add-announcement.component';
-
+import { UsersCabinetComponent } from './components/users-cabinet/cabinet.component';
+import {UpdateAnnouncementComponent} from "./components/update-announcement/update-announcement.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    InfoComponent,
-    AnnouncementComponent,
+    InfoPageComponent,
+    AnnouncementListComponent,
     HeaderComponent,
     LoginComponent,
     RegistrationComponent,
     AnnouncementDetailsComponent,
-    AddAnnouncementComponent
+    AddAnnouncementComponent,
+    UsersCabinetComponent,
+    UpdateAnnouncementComponent
   ],
   imports: [
     BrowserModule,

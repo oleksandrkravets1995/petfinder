@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ExistUserHttpService} from "../../services/existUser-http.service";
+import {AddAnnouncementHttpService} from '../../services/add-announcement-http.service';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {SectionsHttpService} from '../../services/sections-http.service';
 
 
 @Component({
@@ -8,6 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   templateUrl: './add-announcement.component.html',
   styleUrls: ['./add-announcement.component.scss']
 })
+
 export class AddAnnouncementComponent implements OnInit {
   announcement = {
     title: '',
@@ -17,19 +19,16 @@ export class AddAnnouncementComponent implements OnInit {
     description: ''
   };
 
-  pets = [
-    {id: 1, name: "Cat"},
-    {id: 2, name: "Dog"},
-    {id: 3, name: "Fish"},
-    {id: 4, name: "Parrot"}
-  ];
+  pets;
   selectedPet = null;
   submitted = false;
   form: FormGroup;
 
-  constructor(private httpUser: ExistUserHttpService) { }
+  constructor(private httpUser: AddAnnouncementHttpService, private httpSections: SectionsHttpService) { }
 
   ngOnInit() {
+    this.pets = this.retrieveSections();
+
     this.form = new FormGroup({
       title: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
@@ -37,6 +36,18 @@ export class AddAnnouncementComponent implements OnInit {
       description: new FormControl('', Validators.required),
       image: new FormControl('', Validators.required)
     });
+  }
+
+  retrieveSections() {
+    this.httpSections.getAll()
+      .subscribe(
+        data => {
+          this.pets = data;
+          console.log( this.pets);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
   createAnnouncement() {
@@ -47,8 +58,8 @@ export class AddAnnouncementComponent implements OnInit {
       images: [{image:  this.announcement.image}],
       description: this.announcement.description,
       sections_id: this.selectedPet,
-      user_id: 8,
-      status: 'Not VERIFY'
+      user_id: 10,
+      status: 'NOT_VERIFY'
     };
 
     this.httpUser.create(data)

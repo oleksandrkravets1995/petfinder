@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnnouncementHttpService } from '../../services/announcement-http.service';
+import { AnnouncementsHttpService } from '../../services/announcements-http.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {UserHttpService} from '../../services/user-http.service';
+import {UsersHttpService} from '../../services/users-http.service';
 
 @Component({
   selector: 'app-announcement-details',
@@ -10,21 +10,24 @@ import {UserHttpService} from '../../services/user-http.service';
 })
 
 export class AnnouncementDetailsComponent implements OnInit {
-  currentAnnouncement = null;
-  currentUser = null;
-  images = null;
-  currentID: number;
 
   constructor(
-    private httpAnnouncementService: AnnouncementHttpService,
+    private httpAnnouncementService: AnnouncementsHttpService,
     private route: ActivatedRoute,
     private router: Router,
-    private httpUser: UserHttpService,
+    private httpUser: UsersHttpService,
   ) { }
+
+  isLoading = false;
+  currentAnnouncement = null;
+  currentUser = null;
+  currentID: number;
+
 
   ngOnInit() {
     this.getAnnouncement(this.route.snapshot.paramMap.get('id'));
     this.getUserId(this.route.snapshot.paramMap.get('id'));
+    this.isLoading = true;
   }
 
   getAnnouncement(id) {
@@ -32,6 +35,7 @@ export class AnnouncementDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentAnnouncement = data;
+          this.isLoading = false;
         },
         error => {
           console.log(error);

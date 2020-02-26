@@ -56,3 +56,20 @@
 
 }
 
+.announcement-registrated {
+  width: 100%;
+  text-align: center;
+  font-family: 'Walter Turncoat', cursive;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+}

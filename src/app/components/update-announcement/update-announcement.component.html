@@ -1,0 +1,34 @@
+<div *ngIf="announcement && !isLoading">
+
+<h1 class="add-announcement__main-title">Update announcement</h1>
+  <form class="add-announcement" (ngSubmit)="updateAnnouncement()">
+
+    <mat-form-field >
+      <input matInput placeholder="Title" [(ngModel)]="announcement.title" name="title">
+    </mat-form-field>
+
+    <mat-form-field>
+          <mat-select placeholder="Pets" [(ngModel)]="selectedPet" name="selectedPet">
+            <mat-option *ngFor="let pet of pets" [value]="pet.sections_id">{{pet.name}}</mat-option>
+          </mat-select>
+  </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" [(ngModel)]="announcement.price" name="price">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Location" [(ngModel)]="announcement.location" name="location">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Image" [(ngModel)]="announcement.image" name="image">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" [(ngModel)]="announcement.description" name="description"></textarea>
+    </mat-form-field>
+
+    <button mat-fab color="primary" type="submit">Edit</button>
+
+  </form>
+</div>

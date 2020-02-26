@@ -2,14 +2,21 @@
   box-shadow: 5px 5px 20px rgba(#BA7E7E, .5);
   width: 350px;
   min-height: 360px;
-  margin: 20px auto 60px;
+  margin: 20px 30px 60px;
   font-family: 'Walter Turncoat', cursive;
 
+  @media only screen and (max-width: 960px)  {
+    margin: 20px auto 60px;
+  }
+
   &__title {
-    margin-top: 5px;
+    margin-top: 25px;
     font-size: 3rem;
     text-align: center;
     text-shadow: 1px 1px 2px black;
+
+
+
   }
 
   &__search {
@@ -20,6 +27,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+
+      @media only screen and (max-width: 960px)  {
+        flex-direction: column;
+      }
+
+    }
+
+    &-form {
+
+      display: flex;
+      align-items: center;
     }
 
     &-input {
@@ -27,11 +46,24 @@
       color: black;
       font-size: 1.4rem;
       margin-right: 50px;
+
+      @media only screen and (max-width: 960px)  {
+        width: 300px;
+        font-size: 1.2rem;
+      }
+
+
     }
 
-    &-button-refresh {
-      margin-right: 50px;
+    &-button-search {
+      margin-left: 100px;
+
+      @media only screen and (max-width: 960px)  {
+        margin-left: 0;
+      }
+
     }
+
   }
 
   &__header {
@@ -43,8 +75,17 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 20px;
+
+    @media only screen and (max-width: 1345px)  {
+      justify-content: space-around;
+    }
+
+    @media only screen and (max-width: 960px)  {
+      flex-direction: column;
+      align-items: center;
+    }
 
     &-subtitle {
       text-align: right;

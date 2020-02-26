@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserHttpService} from '../../services/user-http.service';
+import {UsersHttpService} from '../../services/users-http.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +8,10 @@ import {UserHttpService} from '../../services/user-http.service';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  constructor( private httpUser: UserHttpService) { }
+  constructor( private httpUser: UsersHttpService) { }
   charsCount = 5;
+  submitted = false;
+
   form: FormGroup;
   user = {
     name: '',
@@ -63,7 +65,7 @@ export class RegistrationComponent implements OnInit {
       phone: this.user.telephone,
       role: 'USER'
     };
-
+    this.userRegistrated();
     this.httpUser.create(data)
       .subscribe(
         response => {
@@ -72,5 +74,10 @@ export class RegistrationComponent implements OnInit {
         error => {
           console.log(error);
         });
+
+  }
+
+  userRegistrated() {
+    this.submitted = true;
   }
 }

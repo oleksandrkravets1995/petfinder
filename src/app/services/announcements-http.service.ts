@@ -6,7 +6,7 @@ const baseUrl = 'http://localhost:8080/api/announcement';
 @Injectable({
   providedIn: 'root'
 })
-export class AnnouncementHttpService {
+export class AnnouncementsHttpService {
 
   constructor(private http: HttpClient) { }
 

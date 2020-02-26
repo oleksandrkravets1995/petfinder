@@ -1,4 +1,5 @@
 <div *ngIf="!submitted">
+  <h1 class="add-announcement__main-title">Add announcement</h1>
 <form class="add-announcement" (ngSubmit)="createAnnouncement()">
 
   <mat-form-field >
@@ -7,7 +8,7 @@
 
   <mat-form-field>
     <mat-select placeholder="Pets" [(ngModel)]="selectedPet" name="selectedPet">
-      <mat-option *ngFor="let pet of pets" [value]="pet.id">{{pet.name}}</mat-option>
+      <mat-option *ngFor="let pet of pets" [value]="pet.sections_id">{{pet.name}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
@@ -32,6 +33,6 @@
 </div>
 
 <div class="announcement-sended" *ngIf="submitted">
-  <h2>You send your mail succesfully!</h2>
-  <button mat-flat-button color="primary" (click)="cleanAnnouncementForm()">Add new announcement</button>
+  <h2>You send your announcement successfully!</h2>
+  <button class="announcement-sended__btn" mat-flat-button color="primary" (click)="cleanAnnouncementForm()">Add new announcement</button>
 </div>

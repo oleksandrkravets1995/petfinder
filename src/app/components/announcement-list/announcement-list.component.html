@@ -1,9 +1,9 @@
-<div class="container">
+
 <div class="announcement-wrapper">
-
     <h1 class="announcement__title">Announcements</h1>
-
     <div class="announcement__search-wrapper">
+
+<div class="announcement__search-form">
 
       <mat-form-field class="announcement__search-input">
         <input matInput placeholder="Search announcement by title" [(ngModel)]="title" (keyup.enter)="searchTitle()">
@@ -15,6 +15,7 @@
       </button>
       </div>
 
+</div>
       <div class="announcement__search-button-search">
         <button mat-raised-button (click)="searchTitle()">Search</button>
       </div>
@@ -50,4 +51,4 @@
 </div>
 
   </div>
-</div>
+

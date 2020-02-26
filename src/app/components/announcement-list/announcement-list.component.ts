@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AnnouncementHttpService } from 'src/app/services/announcement-http.service';
+import { AnnouncementsHttpService } from 'src/app/services/announcements-http.service';
 
 @Component({
   selector: 'app-announcement',
-  templateUrl: './announcement.component.html',
-  styleUrls: ['./announcement.component.scss']
+  templateUrl: './announcement-list.component.html',
+  styleUrls: ['./announcement-list.component.scss']
 })
 
-export class AnnouncementComponent implements OnInit {
+export class AnnouncementListComponent implements OnInit {
   announcements: any;
   title = '';
 
-  constructor(private httpService: AnnouncementHttpService) {}
+  constructor(private httpService: AnnouncementsHttpService) {}
 
   ngOnInit() {
     this.retrieveAnnouncement();

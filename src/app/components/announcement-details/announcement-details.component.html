@@ -1,5 +1,4 @@
-
-<div *ngIf="currentAnnouncement">
+<div *ngIf="currentAnnouncement && !isLoading">
 
   <div class="announcement__card">
     <div class="announcement__card-images">
@@ -20,7 +19,7 @@
   </div>
 
 </div>
-<div *ngIf="!currentAnnouncement">
+<div *ngIf="!currentAnnouncement && !isLoading">
   <div class="announcement__card announcement__card-error">
     <div class="announcement__card-images-error">
       <img src="https://purepng.com/public/uploads/medium/purepng.com-sign-stoptraffic-signsign-stopnotify-driversstop-signs-1701527614634stobe.png" />
