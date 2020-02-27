@@ -9,7 +9,6 @@ import {SectionsHttpService} from '../../services/sections-http.service';
   templateUrl: './add-announcement.component.html',
   styleUrls: ['./add-announcement.component.scss']
 })
-
 export class AddAnnouncementComponent implements OnInit {
   announcement = {
     title: '',
@@ -55,10 +54,10 @@ export class AddAnnouncementComponent implements OnInit {
       title: this.announcement.title,
       price: this.announcement.price,
       location: this.announcement.location,
-      images: [{image:  this.announcement.image}],
+      images: [{image: this.announcement.image}],
       description: this.announcement.description,
       sections_id: this.selectedPet,
-      user_id: 10,
+      user_id: 80,
       status: 'NOT_VERIFY'
     };
 

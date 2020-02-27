@@ -8,6 +8,7 @@ import {AnnouncementDetailsComponent} from './components/announcement-details/an
 import {AddAnnouncementComponent} from './components/add-announcement/add-announcement.component';
 import {UsersCabinetComponent} from './components/users-cabinet/cabinet.component';
 import {UpdateAnnouncementComponent} from "./components/update-announcement/update-announcement.component";
+import {AdminCabinetComponent} from "./components/admin-cabinet/admin-cabinet.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'add-announcement', component: AddAnnouncementComponent},
   { path: 'update-announcement/:id', component: UpdateAnnouncementComponent},
   { path: 'cabinet/:id', component: UsersCabinetComponent},
+  { path: 'cabinet-admin', component: AdminCabinetComponent},
   { path: '**', redirectTo: 'announcement', pathMatch: 'full'}
 ];
 

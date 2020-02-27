@@ -33,7 +33,7 @@ export class UpdateAnnouncementComponent implements OnInit {
             this.announcement = data;
             this.selectedPet = this.announcement.sections_id;
             this.isLoading = false;
-            console.log(this.announcement)
+            console.log(this.announcement);
           }
         },
         error => {
@@ -60,13 +60,13 @@ export class UpdateAnnouncementComponent implements OnInit {
       images: [{image: this.announcement.image}],
       description: this.announcement.description,
       sections_id: this.selectedPet,
-      user_id: this.announcement.user_id,
       status: 'NOT_VERIFY'
     };
 
     this.httpAnnouncementService.update(this.announcement.announcement_id, data)
       .subscribe(
         response => {
+          console.log(data)
           console.log(response);
         },
         error => {

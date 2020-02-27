@@ -1,4 +1,5 @@
 <div *ngIf="!submitted">
+  <h1>All announcements of {{currentUser.name | titlecase}}</h1>
 <mat-table [dataSource]="announcements" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
@@ -19,8 +20,15 @@
     <mat-cell *matCellDef="let element"> {{element.created_date}} </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.status}}
+    </mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="update">
-    <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
     <mat-cell *matCellDef="let element">
       <a routerLink="/update-announcement/{{ element.announcement_id}}">
       <button mat-raised-button color="primary">Edit</button>
@@ -44,3 +52,6 @@
   <h2 class="announcement-delete__title">You deleted your announcement successfully!</h2>
   <h1 class="announcement-delete__time">{{count}}</h1>
 </div>
+
+
+

@@ -1,0 +1,55 @@
+<div *ngIf="!submitted">
+<mat-table [dataSource]="announcements" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element, let i = index;"> {{i+1}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a class="announcement__title" routerLink="/announcement/{{element.announcement_id}}">{{element.title}}</a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="created_date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.created_date}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="publish">
+      <mat-header-cell *matHeaderCellDef> Publish </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a routerLink="/announcement">
+          <button mat-raised-button color="primary" (click)="publishAnnouncement(element)">Publish</button>
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="deleteAnnouncement(element)">Delete</button>
+      </mat-cell>
+    </ng-container>
+
+  <ng-container matColumnDef="cancel">
+    <mat-header-cell *matHeaderCellDef> Cancel </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <a routerLink="/announcement">
+      <button mat-stroked-button color="warn" (click)="cacnelAnnouncement(element)">Cancel</button>
+      </a>
+    </mat-cell>
+  </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<div class="announcement-delete" *ngIf="submitted">
+  <h2 class="announcement-delete__title">You deleted your announcement successfully!</h2>
+  <h1 class="announcement-delete__time">{{count}}</h1>
+</div>

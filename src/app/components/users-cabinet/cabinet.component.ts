@@ -14,7 +14,7 @@ export class UsersCabinetComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) { }
   currentUser;
-  displayedColumns: string[] = ['position', 'title', 'created_date', 'delete', 'update'];
+  displayedColumns: string[] = ['position', 'title', 'created_date', 'status', 'update', 'delete'];
   announcements;
   title;
   submitted = false;
@@ -64,4 +64,6 @@ export class UsersCabinetComponent implements OnInit {
       this.count = this.count - 1;
     }, 1000);
   }
+
+
 }

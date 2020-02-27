@@ -51,6 +51,7 @@ import { AnnouncementDetailsComponent } from './components/announcement-details/
 import { AddAnnouncementComponent } from './components/add-announcement/add-announcement.component';
 import { UsersCabinetComponent } from './components/users-cabinet/cabinet.component';
 import {UpdateAnnouncementComponent} from "./components/update-announcement/update-announcement.component";
+import { AdminCabinetComponent } from './components/admin-cabinet/admin-cabinet.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {UpdateAnnouncementComponent} from "./components/update-announcement/upda
     AnnouncementDetailsComponent,
     AddAnnouncementComponent,
     UsersCabinetComponent,
-    UpdateAnnouncementComponent
+    UpdateAnnouncementComponent,
+    AdminCabinetComponent
   ],
   imports: [
     BrowserModule,

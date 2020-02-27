@@ -14,6 +14,14 @@ export class AnnouncementsHttpService {
     return this.http.get(baseUrl);
   }
 
+  getAllPublished() {
+    return this.http.get(`${baseUrl}/published`);
+  }
+
+  getAllUnPublished() {
+    return this.http.get(`${baseUrl}/unpublished`);
+  }
+
   get(id) {
     return this.http.get(`${baseUrl}/${id}`);
   }
@@ -28,10 +36,6 @@ export class AnnouncementsHttpService {
 
   delete(id) {
     return this.http.delete(`${baseUrl}/${id}`);
-  }
-
-  deleteAll() {
-    return this.http.delete(baseUrl);
   }
 
   findByTitle(title) {

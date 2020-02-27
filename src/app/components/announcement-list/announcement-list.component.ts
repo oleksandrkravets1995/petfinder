@@ -14,16 +14,15 @@ export class AnnouncementListComponent implements OnInit {
   constructor(private httpService: AnnouncementsHttpService) {}
 
   ngOnInit() {
-    this.retrieveAnnouncement();
+    this.getAllPublished();
     this.title = '';
   }
 
-  retrieveAnnouncement() {
-    this.httpService.getAll()
+  getAllPublished() {
+    this.httpService.getAllPublished()
       .subscribe(
         data => {
-          this.announcements = data;
-          console.log( this.announcements);
+            this.announcements = data;
         },
         error => {
           console.log(error);
@@ -43,7 +42,7 @@ export class AnnouncementListComponent implements OnInit {
   }
 
   refreshAnnouncementList() {
-    this.retrieveAnnouncement()
+    this.getAllPublished()
     this.title = '';
   }
 }
