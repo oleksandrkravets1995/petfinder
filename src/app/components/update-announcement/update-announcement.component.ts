@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AnnouncementsHttpService} from "../../services/announcements-http.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SectionsHttpService} from "../../services/sections-http.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-announcement',
@@ -17,6 +18,7 @@ export class UpdateAnnouncementComponent implements OnInit {
   constructor(private httpAnnouncementService: AnnouncementsHttpService,
               private httpSections: SectionsHttpService,
               private route: ActivatedRoute,
+              private snackBar: MatSnackBar,
               private router: Router) { }
 
   ngOnInit() {
@@ -66,6 +68,11 @@ export class UpdateAnnouncementComponent implements OnInit {
     this.httpAnnouncementService.update(this.announcement.announcement_id, data)
       .subscribe(
         response => {
+          this.snackBar.open('This announcement has been edited successfully. Wait for confirm.', '', {
+            duration: 2000,
+            verticalPosition: 'top',
+            panelClass: ['snackbar-published']
+          });
           console.log(data)
           console.log(response);
         },

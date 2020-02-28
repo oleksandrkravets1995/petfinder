@@ -16,9 +16,7 @@
     <mat-label [ngClass]="{'registration__valid-color': form.get('email').valid && form.get('email').touched}">Email</mat-label>
     <input matInput placeholder="Enter your email:" formControlName="email" [(ngModel)]="user.email">
     <mat-icon matSuffix>email</mat-icon>
-<!--    <mat-error *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">-->
-<!--      Please enter a valid email address-->
-<!--    </mat-error>-->
+
     <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
       <span *ngIf="form.get('email').errors['required']">Email cannot be <strong>blank</strong></span>
       <span *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">Please enter a valid email address</span>
@@ -30,9 +28,9 @@
   <mat-form-field class="log-in-item">
     <mat-label [ngClass]="{'registration__valid-color': form.get('password').valid && form.get('password').touched}">Password</mat-label>
     <input matInput placeholder="Enter your password" type="email" [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="user.password"/>
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
+    </span>
     <mat-error *ngIf="form.get('password').invalid && form.get('password').touched">
       <span *ngIf="form.get('password').errors['required']">Password cannot be <strong>blank</strong></span>
       <br>
@@ -59,7 +57,7 @@
 </div>
 
 <div class="announcement-registrated" *ngIf="submitted">
-  <h2>You've been registrated succesfully!</h2>
-  <p>Please, check out you email to move on</p>
+  <h2>You've been registrated successfully!</h2>
+  <p>Please, check out your email to move on</p>
 </div>
 

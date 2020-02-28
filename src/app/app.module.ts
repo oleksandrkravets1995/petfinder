@@ -1,11 +1,11 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
-//Angular materials modules
+// Angular materials modules
 import {MatCheckboxModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
@@ -37,10 +37,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
-//Routing
-import {AppRoutingModule} from "./app-routing.module";
+// Routing
+import {AppRoutingModule} from './app-routing.module';
 
-//My components
+// My components
 import { AppComponent } from './app.component';
 import { InfoPageComponent } from './components/info-page/info-page.component';
 import { AnnouncementListComponent } from './components/announcement-list/announcement-list.component';
@@ -50,8 +50,10 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { AnnouncementDetailsComponent } from './components/announcement-details/announcement-details.component';
 import { AddAnnouncementComponent } from './components/add-announcement/add-announcement.component';
 import { UsersCabinetComponent } from './components/users-cabinet/cabinet.component';
-import {UpdateAnnouncementComponent} from "./components/update-announcement/update-announcement.component";
+import {UpdateAnnouncementComponent} from './components/update-announcement/update-announcement.component';
+import { ManagerCabinetComponent } from './components/manager-cabinet/manager-cabinet.component';
 import { AdminCabinetComponent } from './components/admin-cabinet/admin-cabinet.component';
+import { ConfirmationDialogComponent } from './services/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -65,15 +67,19 @@ import { AdminCabinetComponent } from './components/admin-cabinet/admin-cabinet.
     AddAnnouncementComponent,
     UsersCabinetComponent,
     UpdateAnnouncementComponent,
-    AdminCabinetComponent
+    ManagerCabinetComponent,
+    AdminCabinetComponent,
+    ConfirmationDialogComponent
+
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-  //  Angular materials modules
+  // Angular materials modules
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatCheckboxModule,
@@ -108,6 +114,7 @@ import { AdminCabinetComponent } from './components/admin-cabinet/admin-cabinet.
     MatPaginatorModule
   ],
   providers: [],
+  entryComponents: [ConfirmationDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

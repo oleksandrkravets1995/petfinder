@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {UsersHttpService} from "../../services/users-http.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {AnnouncementsHttpService} from "../../services/announcements-http.service";
+import {UsersHttpService} from '../../services/users-http.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AnnouncementsHttpService} from '../../services/announcements-http.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ConfirmationDialogComponent} from "../../services/confirmation-dialog/confirmation-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-table-basic-flex-example',
@@ -12,14 +15,15 @@ export class UsersCabinetComponent implements OnInit {
   constructor(private httpUser: UsersHttpService,
               private httpAnnouncements: AnnouncementsHttpService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private snackBar: MatSnackBar,
+              public dialog: MatDialog,
+              private router: Router) {
+  }
+
   currentUser;
   displayedColumns: string[] = ['position', 'title', 'created_date', 'status', 'update', 'delete'];
   announcements;
   title;
-  submitted = false;
-  count = 3;
-  timerId = null;
 
   ngOnInit() {
     this.getUser(this.route.snapshot.paramMap.get('id'));
@@ -32,7 +36,6 @@ export class UsersCabinetComponent implements OnInit {
           this.currentUser = data;
           this.announcements = this.currentUser.announcements;
           this.title = this.announcements.title;
-          console.log(this.announcements);
         },
         error => {
           console.log(error);
@@ -40,30 +43,26 @@ export class UsersCabinetComponent implements OnInit {
   }
 
   deleteAnnouncement(element) {
-    this.httpAnnouncements.delete(element.announcement_id)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.submitted = true;
-          this.getUser(this.route.snapshot.paramMap.get('id'));
-          this.setCountdown();
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  setCountdown() {
-    this.timerId = setInterval(() => {
-      if (this.count === 1) {
-        clearInterval(this.timerId);
-        this.submitted = false;
-        this.timerId = null;
-        this.count = 4;
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: 'Do you want delete this announcement?'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.httpAnnouncements.delete(element.announcement_id)
+          .subscribe(
+            response => {
+              this.snackBar.open('This announcement has been deleted successfully', '', {
+                duration: 2000,
+                verticalPosition: 'bottom',
+                panelClass: ['snackbar-delete']
+              });
+              this.getUser(this.route.snapshot.paramMap.get('id'));
+            },
+            error => {
+              console.log(error);
+            });
       }
-      this.count = this.count - 1;
-    }, 1000);
+    });
   }
-
-
 }

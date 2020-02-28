@@ -1,20 +1,20 @@
 
 <div class="announcement-wrapper">
+
     <h1 class="announcement__title">Announcements</h1>
+
+
     <div class="announcement__search-wrapper">
 
 <div class="announcement__search-form">
-
       <mat-form-field class="announcement__search-input">
         <input matInput placeholder="Search announcement by title" [(ngModel)]="title" (keyup.enter)="searchTitle()">
       </mat-form-field>
-
       <div class="announcement__search-button-refresh">
       <button mat-mini-fab aria-label="Refresh" color="warn" (click)="refreshAnnouncementList()">
         <mat-icon>cancel icon</mat-icon>
       </button>
       </div>
-
 </div>
       <div class="announcement__search-button-search">
         <button mat-raised-button (click)="searchTitle()">Search</button>
@@ -24,7 +24,7 @@
 
 <div class="announcement__list">
 
-    <mat-card class="announcement" *ngFor="let announcement of announcements; let i = index">
+    <mat-card class="announcement" *ngFor="let announcement of announcements | paginate: { itemsPerPage: 6, currentPage: p } ">
       <mat-card-header class="announcement__header">
         <div mat-card-avatar >
           <img class="announcement__header-image" src="{{ announcement.section.avatar }}" alt="avatar">
@@ -50,5 +50,8 @@
 
 </div>
 
+<div class="pagination-controls">
+  <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+</div>
   </div>
 

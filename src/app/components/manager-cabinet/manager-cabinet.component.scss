@@ -1,0 +1,20 @@
+.announcement__title {
+  color: rgba(0,0,0,.87);
+  font-weight: bold;
+
+  &:hover {
+    color: lighten(rgba(0,0,0), 50%);
+  }
+}
+
+.table-title {
+  text-align: center;
+}
+
+.announcements-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

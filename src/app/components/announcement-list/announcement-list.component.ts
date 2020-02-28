@@ -10,6 +10,7 @@ import { AnnouncementsHttpService } from 'src/app/services/announcements-http.se
 export class AnnouncementListComponent implements OnInit {
   announcements: any;
   title = '';
+  p = 1;
 
   constructor(private httpService: AnnouncementsHttpService) {}
 

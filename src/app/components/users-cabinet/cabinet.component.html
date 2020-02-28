@@ -1,13 +1,12 @@
-<div *ngIf="!submitted">
   <h1>All announcements of {{currentUser.name | titlecase}}</h1>
+
 <mat-table [dataSource]="announcements" class="mat-elevation-z8">
-  <!-- Position Column -->
+
   <ng-container matColumnDef="position">
     <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
     <mat-cell *matCellDef="let element, let i = index;"> {{i+1}} </mat-cell>
   </ng-container>
 
-  <!-- Name Column -->
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
     <mat-cell *matCellDef="let element">
@@ -30,7 +29,7 @@
   <ng-container matColumnDef="update">
     <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <a routerLink="/update-announcement/{{ element.announcement_id}}">
+      <a routerLink="/announcement-update/{{ element.announcement_id}}">
       <button mat-raised-button color="primary">Edit</button>
       </a>
     </mat-cell>
@@ -46,12 +45,3 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
-</div>
-
-<div class="announcement-delete" *ngIf="submitted">
-  <h2 class="announcement-delete__title">You deleted your announcement successfully!</h2>
-  <h1 class="announcement-delete__time">{{count}}</h1>
-</div>
-
-
-

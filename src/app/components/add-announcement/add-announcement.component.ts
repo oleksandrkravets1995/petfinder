@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AddAnnouncementHttpService} from '../../services/add-announcement-http.service';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SectionsHttpService} from '../../services/sections-http.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -20,10 +21,10 @@ export class AddAnnouncementComponent implements OnInit {
 
   pets;
   selectedPet = null;
-  submitted = false;
   form: FormGroup;
 
-  constructor(private httpUser: AddAnnouncementHttpService, private httpSections: SectionsHttpService) { }
+  constructor(private httpUser: AddAnnouncementHttpService, private httpSections: SectionsHttpService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.pets = this.retrieveSections();
@@ -42,7 +43,6 @@ export class AddAnnouncementComponent implements OnInit {
       .subscribe(
         data => {
           this.pets = data;
-          console.log( this.pets);
         },
         error => {
           console.log(error);
@@ -57,20 +57,25 @@ export class AddAnnouncementComponent implements OnInit {
       images: [{image: this.announcement.image}],
       description: this.announcement.description,
       sections_id: this.selectedPet,
-      user_id: 80,
+      user_id: 10,
       status: 'NOT_VERIFY'
     };
 
     this.httpUser.create(data)
       .subscribe(
         response => {
+          this.snackBar.open('This announcement has been published successfully. Wait for confirm.', '', {
+            duration: 2000,
+            verticalPosition: 'top',
+            panelClass: ['snackbar-published']
+          });
+          this.cleanAnnouncementForm();
           console.log(response);
         },
         error => {
           console.log(error);
         });
 
-    this.submitted = true;
   }
 
   cleanAnnouncementForm() {
@@ -82,7 +87,6 @@ export class AddAnnouncementComponent implements OnInit {
       description: ''
     };
     this.selectedPet = null;
-    this.submitted = false;
   }
 
 }
