@@ -68,7 +68,7 @@ export class UpdateAnnouncementComponent implements OnInit {
     this.httpAnnouncementService.update(this.announcement.announcement_id, data)
       .subscribe(
         response => {
-          this.snackBar.open('This announcement has been edited successfully. Wait for confirm.', '', {
+          this.snackBar.open('This announcement has been fixed successfully. Wait for confirm.', '', {
             duration: 2000,
             verticalPosition: 'top',
             panelClass: ['snackbar-published']

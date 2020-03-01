@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {Injectable, NgModule} from '@angular/core';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest
+} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -54,6 +61,22 @@ import {UpdateAnnouncementComponent} from './components/update-announcement/upda
 import { ManagerCabinetComponent } from './components/manager-cabinet/manager-cabinet.component';
 import { AdminCabinetComponent } from './components/admin-cabinet/admin-cabinet.component';
 import { ConfirmationDialogComponent } from './services/confirmation-dialog/confirmation-dialog.component';
+import { RootComponent } from './components/root/root.component';
+import {Observable} from "rxjs";
+
+@Injectable()
+export class CustomInterceptor implements HttpInterceptor {
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    request = request.clone({
+      withCredentials: true
+    });
+
+    return next.handle(request);
+  }
+}
+
 
 @NgModule({
   declarations: [
@@ -69,7 +92,8 @@ import { ConfirmationDialogComponent } from './services/confirmation-dialog/conf
     UpdateAnnouncementComponent,
     ManagerCabinetComponent,
     AdminCabinetComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    RootComponent
 
   ],
   imports: [
@@ -113,7 +137,11 @@ import { ConfirmationDialogComponent } from './services/confirmation-dialog/conf
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: CustomInterceptor ,
+    multi: true
+  }],
   entryComponents: [ConfirmationDialogComponent],
   bootstrap: [AppComponent]
 })

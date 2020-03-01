@@ -11,7 +11,7 @@ import {ConfirmationDialogComponent} from '../../services/confirmation-dialog/co
 })
 
 export class ManagerCabinetComponent implements OnInit {
-  announcements;
+  announcements = {};
   isLoading = false;
   displayedColumns: string[] = ['position', 'title', 'created_date', 'delete', 'publish', 'refusal'];
   durationInSeconds = 2;

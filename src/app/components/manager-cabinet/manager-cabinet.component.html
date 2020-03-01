@@ -1,4 +1,5 @@
-<div *ngIf="announcements && !isLoading">
+<!--<div *ngIf="announcements.length > 0 && !isLoading">-->
+<div *ngIf="announcements.length > 0">
 <h1 class="table-title">Not verify announcements</h1>
 <mat-table [dataSource]="announcements" class="mat-elevation-z8">
 
@@ -45,7 +46,8 @@
   </mat-table>
 </div>
 
-<div *ngIf="!announcements && !isLoading">
+<!--<div *ngIf="announcements.length == 0 && !isLoading">-->
+<div *ngIf="announcements.length == 0">
 <div class="announcements-empty">
   <h2>There aren't new announcements</h2>
 </div>

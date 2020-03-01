@@ -10,11 +10,14 @@ import {UsersCabinetComponent} from './components/users-cabinet/cabinet.componen
 import {UpdateAnnouncementComponent} from './components/update-announcement/update-announcement.component';
 import {ManagerCabinetComponent} from './components/manager-cabinet/manager-cabinet.component';
 import {AdminCabinetComponent} from './components/admin-cabinet/admin-cabinet.component';
+import {AppComponent} from './app.component';
+import {AuthGuardService} from "./services/auth-guard.service";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'announcements', pathMatch: 'full' },
+  { path: 'home', component: AppComponent, canActivate : [AuthGuardService] },
   { path: 'info', component: InfoPageComponent },
   { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'announcements', component: AnnouncementListComponent},
   { path: 'announcement/:id', component: AnnouncementDetailsComponent},

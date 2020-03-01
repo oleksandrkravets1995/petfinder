@@ -11,14 +11,22 @@
         </a>
       </div>
       <div class="header__auth">
-        <div class="header__button">
-          <a class="header__button-link" mat-raised-button routerLink="login">Log In</a>
+        <div *ngIf="!this.authService.isAuthenticated()">
+          <div class="header__button">
+            <a class="header__button-link" mat-raised-button routerLink="login">Log In</a>
+          </div>
+          <!--        <div class="header__button">-->
+          <!--          <a class="header__button-link" mat-raised-button routerLink="add-announcement-list">add</a>-->
+          <!--        </div>-->
+          <div class="header__button">
+            <a class="header__button-link" mat-raised-button routerLink="registration">Sign Up</a>
+          </div>
         </div>
-<!--        <div class="header__button">-->
-<!--          <a class="header__button-link" mat-raised-button routerLink="add-announcement-list">add</a>-->
-<!--        </div>-->
-        <div class="header__button">
-          <a class="header__button-link" mat-raised-button routerLink="registration">Sign Up</a>
+        <div *ngIf="this.authService.isAuthenticated() && (this.authService.user.user.role == 'USER')">
+          <span>{{this.authService.user.user.name}}</span>
+          <div class="header__button">
+            <a class="header__button-link" mat-raised-button routerLink="logout" (click)="authService.logout()">Logout</a>
+          </div>
         </div>
       </div>
 
@@ -33,6 +41,13 @@
           <mat-icon>supervised_user_circle</mat-icon>
           <span>Sign in</span>
         </button>
+        </a>
+
+        <a class="header__button-menu__link" routerLink="login">
+          <button mat-menu-item>
+            <mat-icon>supervised_user_circle</mat-icon>
+            <span>Logout</span>
+          </button>
         </a>
 
         <a class="header__button-menu__link" routerLink="registration">

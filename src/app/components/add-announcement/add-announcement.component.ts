@@ -64,7 +64,7 @@ export class AddAnnouncementComponent implements OnInit {
     this.httpUser.create(data)
       .subscribe(
         response => {
-          this.snackBar.open('This announcement has been published successfully. Wait for confirm.', '', {
+          this.snackBar.open('This announcement was sent. Wait for confirm.', '', {
             duration: 2000,
             verticalPosition: 'top',
             panelClass: ['snackbar-published']
