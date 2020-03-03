@@ -5,6 +5,7 @@ import {AnnouncementsHttpService} from '../../services/announcements-http.servic
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ConfirmationDialogComponent} from "../../services/confirmation-dialog/confirmation-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-table-basic-flex-example',
@@ -17,7 +18,8 @@ export class UsersCabinetComponent implements OnInit {
               private route: ActivatedRoute,
               private snackBar: MatSnackBar,
               public dialog: MatDialog,
-              private router: Router) {
+              private  authService: AuthService
+             ) {
   }
 
   currentUser;

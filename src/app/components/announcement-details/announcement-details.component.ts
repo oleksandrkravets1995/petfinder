@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnnouncementsHttpService } from '../../services/announcements-http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {UsersHttpService} from '../../services/users-http.service';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-announcement-details',
@@ -16,6 +17,7 @@ export class AnnouncementDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpUser: UsersHttpService,
+    private authService: AuthService
   ) { }
 
   isLoading = false;

@@ -111,6 +111,7 @@ export class ManagerCabinetComponent implements OnInit {
       data: 'Do you want delete this announcement?'
     });
     dialogRef.afterClosed().subscribe(result => {
+      console.log(element.user.email)
       if (result) {
         this.httpAnnouncement.delete(element.announcement_id)
           .subscribe(

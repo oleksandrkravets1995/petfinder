@@ -3,16 +3,17 @@
   display: flex;
   color: white;
   user-select: none;
-  padding: 15px 0;
   width: 100%;
-  margin: 0 auto;
+
 
   &__inner {
+    padding: 15px 0;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 
-    @media only screen and (max-width: 960px)  {
+    @media only screen and (max-width: 1250px)  {
       justify-content: space-evenly;
     }
 
@@ -24,7 +25,7 @@
     text-shadow: 3px 3px 15px  rgb(255, 255, 255);
     transition: all 0.3s ease;
 
-    @media only screen and (max-width: 960px)  {
+    @media only screen and (max-width: 1260px)  {
       display: none;
     }
   }
@@ -46,9 +47,10 @@
 
   &__auth {
     display: flex;
+    padding-right: 10px;
 
-    @media only screen and (max-width: 960px)  {
-      display: none;
+    &-not-authenticated {
+      display: flex;
     }
   }
 
@@ -75,9 +77,6 @@
     &-menu__wrapper {
       display: none;
 
-      @media only screen and (max-width: 960px)  {
-        display: block;
-      }
     }
 
     &-menu__link {

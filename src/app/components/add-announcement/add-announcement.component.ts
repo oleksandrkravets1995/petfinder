@@ -3,6 +3,7 @@ import {AddAnnouncementHttpService} from '../../services/add-announcement-http.s
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SectionsHttpService} from '../../services/sections-http.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {AuthService} from '../../services/auth.service';
 
 
 @Component({
@@ -19,15 +20,20 @@ export class AddAnnouncementComponent implements OnInit {
     description: ''
   };
 
+  userId;
   pets;
   selectedPet = null;
   form: FormGroup;
 
   constructor(private httpUser: AddAnnouncementHttpService, private httpSections: SectionsHttpService,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private authService: AuthService) { }
+
 
   ngOnInit() {
     this.pets = this.retrieveSections();
+    this.userId = this.authService.user.user.user_id;
+    console.log(this.userId)
 
     this.form = new FormGroup({
       title: new FormControl('', Validators.required),
@@ -57,7 +63,7 @@ export class AddAnnouncementComponent implements OnInit {
       images: [{image: this.announcement.image}],
       description: this.announcement.description,
       sections_id: this.selectedPet,
-      user_id: 10,
+      user_id: this.userId,
       status: 'NOT_VERIFY'
     };
 

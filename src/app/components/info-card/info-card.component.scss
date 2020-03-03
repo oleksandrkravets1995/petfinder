@@ -1,0 +1,13 @@
+.example-card {
+  max-width: 400px;
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: beige;
+}
+
+.example-header-image {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRvg4bJuJuHVSQEUdaj_suDG8uNZTdgEkeuzCglN9aDfpuKHD40');
+  background-size: cover;
+}

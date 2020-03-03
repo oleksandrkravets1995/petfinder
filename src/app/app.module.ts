@@ -63,6 +63,7 @@ import { AdminCabinetComponent } from './components/admin-cabinet/admin-cabinet.
 import { ConfirmationDialogComponent } from './services/confirmation-dialog/confirmation-dialog.component';
 import { RootComponent } from './components/root/root.component';
 import {Observable} from "rxjs";
+import { InfoCardComponent } from './components/info-card/info-card.component';
 
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor {
@@ -93,7 +94,8 @@ export class CustomInterceptor implements HttpInterceptor {
     ManagerCabinetComponent,
     AdminCabinetComponent,
     ConfirmationDialogComponent,
-    RootComponent
+    RootComponent,
+    InfoCardComponent
 
   ],
   imports: [

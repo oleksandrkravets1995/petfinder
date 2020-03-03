@@ -18,3 +18,17 @@
   transform: translate(-50%, -50%);
 }
 
+.none {
+  @media only screen and (max-width: 900px)  {
+    display: none;
+  }
+}
+
+.title {
+  padding-left: 10px;
+}
+
+.right {
+  padding-right: 4px;
+}
+

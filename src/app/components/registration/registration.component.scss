@@ -1,8 +1,5 @@
 .registration {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 20px auto;
   width: 300px;
   padding: 55px 75px;
   border: 1px solid black;
@@ -11,12 +8,16 @@
   flex-direction: column;
   box-shadow: 1px 1px 7px  black;
 
+  @media only screen and (max-width: 560px)  {
+    width: 50%;
+  }
+
   &__title {
     text-align: center;
   }
 
   &__button {
-    width: 30%;
+    width: 50%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);

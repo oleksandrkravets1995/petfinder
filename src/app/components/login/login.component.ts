@@ -20,14 +20,22 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
   }
 
+  // checkNotValid(control: FormControl) {
+  //   if (this.authService.isNotValid === true) {
+  //     return {
+  //       passwordError: true
+  //     };
+  //   }
+  //   return  null;
+  // }
 
-
-  login() {
+  login(event) {
+    console.log(event)
     this.authService.validate(this.user.email, this.user.password)
       .then((response) => {
         this.authService.setUserInfo({'user': response['user']});

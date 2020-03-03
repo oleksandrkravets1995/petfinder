@@ -1,40 +1,67 @@
-
 body{
   background-color:#f3f2f4;
-  -webkit-transform: perspective(900px);
-  -webkit-transform-style: preserve-3d;
+  transform: perspective(900px);
+  transform-style: preserve-3d;
 }
-.header{
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width:100%;
-  height:95%;
-  position:absolute;
+  height:90vh;
   background-image: linear-gradient(#f9a50e, #ff2115);
   border-bottom-left-radius: 50% 20%;
   border-bottom-right-radius: 50% 20%;
-
-}
-.wrapper{
-  width:100%;
-  height:80vh;
-  background-color:white;
-  border-radius:10px;
   overflow:hidden;
+
+  @media only screen and (max-width: 500px)  {
+    height:60vh;
+  }
+
+  @media only screen and (max-width: 1000px)  {
+    height:80vh;
+  }
 }
+
+ .img img {
+   width: 750px;
+
+   @media only screen and (max-width: 1000px)  {
+     width: 650px;
+   }
+
+   @media only screen and (max-width: 500px)  {
+     width: 530px;
+   }
+
+   @media only screen and (max-width: 400px)  {
+     width: 330px;
+   }
+
+ }
 
 .content {
-  position: absolute;
-  color: white;
+  position: relative;
+  width: 100%;
+  color: black;
   font-family: 'Walter Turncoat', cursive;
-  top: 30%;
-  right: 8%;
+  text-align: center;
 
   &__title {
     font-size: 3.5rem;
+
+    @media only screen and (max-width: 500px)  {
+      font-size: 2.5rem;
+    }
   }
 
   &__subtitle {
     font-size: 2.5rem;
-    text-align: center;
+
+    @media only screen and (max-width: 500px)  {
+      font-size: 1.5rem;
+    }
   }
 
   &__link {
@@ -43,6 +70,10 @@ body{
 
   &__icon {
     font-size: 3.5rem;
+
+    @media only screen and (max-width: 500px)  {
+      font-size: 2rem;
+    }
 
     &-wrapper {
       text-align: center;

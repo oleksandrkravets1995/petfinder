@@ -5,8 +5,12 @@
   margin: 20px 30px 60px;
   font-family: 'Walter Turncoat', cursive;
 
-  @media only screen and (max-width: 400px)  {
+  @media only screen and (max-width: 420px)  {
     width: 250px;
+  }
+
+  @media only screen and (max-width: 350px)  {
+    width: 220px;
   }
 
   &__title {
@@ -14,6 +18,10 @@
     font-size: 3rem;
     text-align: center;
     text-shadow: 1px 1px 2px black;
+
+    @media only screen and (max-width: 375px)  {
+      font-size: 2rem;
+    }
   }
 
   &__search {
@@ -30,14 +38,19 @@
       }
 
       @media only screen and (max-width: 450px)  {
-        width: 70%;
+        width: 100%;
       }
+
 
     }
 
     &-form {
       display: flex;
       align-items: center;
+
+      @media only screen and (max-width: 375px)  {
+        width: 80%;
+      }
     }
 
     &-input {

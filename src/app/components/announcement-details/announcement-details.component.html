@@ -12,8 +12,8 @@
       </div>
       <p class="announcement__card-description">{{ currentAnnouncement.description }} </p>
       <div class="announcement__card-footer">
-       <h2 class="announcement__card-phone">{{ currentUser.phone }} <mat-icon class="announcement__card-icon"> phone</mat-icon></h2>
-        <h2 class="announcement__card-email">{{ currentUser.email }} <mat-icon class="announcement__card-icon"> email</mat-icon></h2>
+       <h2 class="announcement__card-phone">{{ this.authService.user.user.phone }}<mat-icon class="announcement__card-icon"> phone</mat-icon></h2>
+        <h2 class="announcement__card-email">{{ this.authService.user.user.email }} <mat-icon class="announcement__card-icon"> email</mat-icon></h2>
       </div>
     </div>
   </div>

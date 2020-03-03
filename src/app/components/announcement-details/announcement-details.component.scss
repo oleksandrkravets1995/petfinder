@@ -11,6 +11,12 @@
   align-items: center;
   justify-content: space-evenly;
 
+
+  @media only screen and (max-width: 990px)  {
+    flex-direction: column;
+    text-align: center;
+  }
+
  &-error {
    @media only screen and (max-width: 990px)  {
      flex-direction: column;
@@ -28,6 +34,10 @@
       padding-top: 20px;
     }
 
+    @media only screen and (max-width: 990px)  {
+      flex-direction: column;
+    }
+
     &-error img {
       max-width: 300px;
       padding-top: 20px;
@@ -43,6 +53,12 @@
     position: absolute;
     right: 20px;
     top: 20px;
+
+    @media only screen and (max-width: 990px)  {
+      position: relative;
+      right: 0;
+      top: 0;
+    }
   }
 
   &-title {
@@ -51,8 +67,12 @@
     transform: translateX(-50%);
     top: 0px;
     margin-bottom: 20px;
-    color: rgba(#BA7E7E, .4);
+    color: black;
     font-size: 3rem;
+
+    @media only screen and (max-width: 990px)  {
+      position: relative;
+    }
   }
 
   &-price{
@@ -60,6 +80,11 @@
     left: 20px;
     bottom: 0;
     color: rgba(#BA7E7E, .9);
+
+    @media only screen and (max-width: 990px)  {
+      position: relative;
+      left: 0;
+    }
   }
 
   &-description {
@@ -71,6 +96,11 @@
     margin-right: 25px;
     font-weight: bold;
     text-align: justify;
+
+    @media only screen and (max-width: 990px)  {
+      position: relative;
+      text-align: center;
+    }
   }
 
   &-product {
@@ -94,6 +124,7 @@
         font-weight: bold;
         font-size: 1.2rem;
 
+
         @media only screen and (max-width: 990px)  {
           text-align: center;
         }
@@ -115,7 +146,12 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    color: rgba(#BA7E7E, .9);
+    color: black;
+    @media only screen and (max-width: 990px)  {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &-phone {
@@ -123,12 +159,24 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+
+    @media only screen and (max-width: 990px)  {
+      position: relative;
+      transform: translateX(0);
+      left: 0;
+    }
   }
 
   &-email {
     position: absolute;
     bottom: 0;
     right: 20px;
+
+    @media only screen and (max-width: 990px)  {
+      position: relative;
+      transform: translateX(0);
+      right: 0;
+  }
   }
 
   &-icon {

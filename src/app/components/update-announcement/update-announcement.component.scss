@@ -1,6 +1,6 @@
 .add-announcement {
   margin: 0 auto;
-  min-width: 300px;
+  min-width: 250px;
   max-width: 1000px;
   padding: 35px 75px;
   border: 1px solid black;
@@ -8,6 +8,16 @@
   display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 7px  black;
+
+
+
+  @media only screen and (max-width: 450px)  {
+    min-width: 200px;
+  }
+
+  @media only screen and (max-width: 400px)  {
+    padding: 35px 45px;
+  }
 
   &__main-title {
     text-align: center;

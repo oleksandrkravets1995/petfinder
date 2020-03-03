@@ -11,11 +11,13 @@ import {UpdateAnnouncementComponent} from './components/update-announcement/upda
 import {ManagerCabinetComponent} from './components/manager-cabinet/manager-cabinet.component';
 import {AdminCabinetComponent} from './components/admin-cabinet/admin-cabinet.component';
 import {AppComponent} from './app.component';
-import {AuthGuardService} from "./services/auth-guard.service";
+import {AuthGuardService} from './services/auth-guard.service';
+import {InfoCardComponent} from './components/info-card/info-card.component';
 
 const routes: Routes = [
   { path: 'home', component: AppComponent, canActivate : [AuthGuardService] },
   { path: 'info', component: InfoPageComponent },
+  { path: 'info-card', component: InfoCardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
@@ -26,7 +28,7 @@ const routes: Routes = [
   { path: 'cabinet-user/:id', component: UsersCabinetComponent},
   { path: 'cabinet-manager', component: ManagerCabinetComponent},
   { path: 'cabinet-admin', component: AdminCabinetComponent},
-  { path: '**', redirectTo: 'announcements', pathMatch: 'full'}
+  { path: '**', redirectTo: 'info', pathMatch: 'full'}
 ];
 
 @NgModule({

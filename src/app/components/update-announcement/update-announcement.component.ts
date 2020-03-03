@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AnnouncementsHttpService} from "../../services/announcements-http.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SectionsHttpService} from "../../services/sections-http.service";
+import {AnnouncementsHttpService} from '../../services/announcements-http.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SectionsHttpService} from '../../services/sections-http.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
@@ -59,7 +59,10 @@ export class UpdateAnnouncementComponent implements OnInit {
       title: this.announcement.title,
       price: this.announcement.price,
       location: this.announcement.location,
-      images: [{image: this.announcement.image}],
+      images: [{
+        image: this.announcement.images[0].image,
+        images_id: this.announcement.images[0].images_id
+      }],
       description: this.announcement.description,
       sections_id: this.selectedPet,
       status: 'NOT_VERIFY'

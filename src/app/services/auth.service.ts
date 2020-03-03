@@ -10,6 +10,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
+  isNotValid = false;
+
   // tslint:disable-next-line:ban-types
   user: {};
 
@@ -49,7 +51,7 @@ export class AuthService {
   public logout() {
     console.log("Logout");
     return this.http.get('/api/logout').toPromise().then(() => {
-      console.log("sdfsdf");
+      console.log("Delete");
       this.removeUserInfo();
     });
   }

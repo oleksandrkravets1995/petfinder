@@ -4,40 +4,40 @@
 <mat-table [dataSource]="announcements" class="mat-elevation-z8">
 
     <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element, let i = index;"> {{i+1}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="none"> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element, let i = index; " class="none"> {{i+1}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="title">
-      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-      <mat-cell *matCellDef="let element">
+      <mat-header-cell class="title" *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell class="title" *matCellDef="let element">
         <a class="announcement__title" routerLink="/announcement/{{element.announcement_id}}">{{element.title}}</a>
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="created_date">
-      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.created_date}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef class="none"> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="none"> {{element.created_date}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="publish">
-      <mat-header-cell *matHeaderCellDef> Publish </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary" (click)="publishAnnouncement(element)">Publish</button>
+      <mat-header-cell *matHeaderCellDef class="right"> Publish </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="right">
+          <button class="btn" mat-raised-button color="primary" (click)="publishAnnouncement(element)">Publish</button>
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn" (click)="deleteAnnouncement(element)">Delete</button>
+      <mat-header-cell *matHeaderCellDef class="right"> Delete </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="right">
+        <button class="btn" mat-raised-button color="warn" (click)="deleteAnnouncement(element)">Delete</button>
       </mat-cell>
     </ng-container>
 
   <ng-container matColumnDef="refusal">
     <mat-header-cell *matHeaderCellDef> Refusal </mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <button mat-stroked-button color="warn" (click)="refusalAnnouncement(element)">Refusal</button>
+      <button class="btn" mat-stroked-button color="warn" (click)="refusalAnnouncement(element)">Refusal</button>
     </mat-cell>
   </ng-container>
 

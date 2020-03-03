@@ -1,0 +1,24 @@
+<div class="wrapper">
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{this.authService.user.user.name | titlecase}}</mat-card-title>
+    <mat-card-subtitle>{{this.authService.user.user.role}}</mat-card-subtitle>
+  </mat-card-header>
+  <div *ngIf="this.authService.isAuthenticated() && (this.authService.user.user.role == 'MANAGER')">
+  <img mat-card-image src="https://lh3.googleusercontent.com/EEBnRLwARuNOPPljNCE_p4CfhUK1hd8D3OyfWuAIChIvNa8QlVDVN7RmqKCiA49JQqk" alt="Manager">
+  </div>
+  <div *ngIf="this.authService.isAuthenticated() && (this.authService.user.user.role == 'USER')">
+    <img mat-card-image src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png" alt="User">
+  </div>
+  <mat-card-content>
+    <p>
+      Phone number: <b>{{this.authService.user.user.phone}}</b>
+    </p>
+    <p>
+      Email: <b>{{this.authService.user.user.email}}</b>
+    </p>
+  </mat-card-content>
+
+</mat-card>
+</div>

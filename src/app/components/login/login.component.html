@@ -1,9 +1,13 @@
-<form class="form" [formGroup]="form"  (ngSubmit)="login()">
+<form class="form" [formGroup]="form"  (ngSubmit)="login(form)">
   <h2 class="form__title">Log in</h2>
   <mat-form-field appearance="legacy">
     <mat-label>E-mail</mat-label>
     <input matInput placeholder="Enter your email:" formControlName="email"  [(ngModel)]="user.email">
     <mat-icon matSuffix>email</mat-icon>
+    <mat-error *ngIf="form.get('email').invalid && form.get('email').touched">
+      <span *ngIf="form.get('email').errors['required']">Email cannot be <strong>blank</strong></span>
+      <span *ngIf="form.get('email').hasError('email') && !form.get('email').hasError('required')">Please enter a valid <b>email</b> address</span>
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="log-in-item">
@@ -14,7 +18,7 @@
       [(ngModel)]="user.password"
       [type]="hide ? 'password' : 'text'"
     />
-    <button
+    <span
       mat-icon-button
       matSuffix
       (click)="hide = !hide"
@@ -22,10 +26,13 @@
       [attr.aria-pressed]="hide"
     >
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
+    </span>
+    <mat-error *ngIf="form.get('password').hasError('required') && form.get('password').touched">
+      Password cannot be <strong>blank</strong>
+    </mat-error>
   </mat-form-field>
 
-  <button class="form__button" mat-raised-button>Sign in</button>
+  <button class="form__button" mat-raised-button [disabled]="form.invalid">Sign in</button>
   <p class="form__text">Don't have an account? |
     <a class="form__link" routerLink="/registration">Sign up</a></p>
 </form>
