@@ -48,7 +48,6 @@ export class ManagerCabinetComponent implements OnInit {
       sections_id: element.announcements,
       status: 'VERIFY'
     };
-
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '350px',
       data: 'Do you want publish this announcement?'

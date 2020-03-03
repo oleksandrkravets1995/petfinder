@@ -33,7 +33,6 @@ export class AddAnnouncementComponent implements OnInit {
   ngOnInit() {
     this.pets = this.retrieveSections();
     this.userId = this.authService.user.user.user_id;
-    console.log(this.userId)
 
     this.form = new FormGroup({
       title: new FormControl('', Validators.required),
