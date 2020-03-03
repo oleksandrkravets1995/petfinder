@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementsHttpService } from 'src/app/services/announcements-http.service';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-announcement',
@@ -12,7 +13,8 @@ export class AnnouncementListComponent implements OnInit {
   title = '';
   p = 1;
 
-  constructor(private httpService: AnnouncementsHttpService) {}
+  constructor(private httpService: AnnouncementsHttpService,
+              private authService: AuthService) {}
 
   ngOnInit() {
     this.getAllPublished();

@@ -3,7 +3,6 @@
 
     <h1 class="announcement__title">Announcements</h1>
 
-
     <div class="announcement__search-wrapper">
 
 <div class="announcement__search-form">
@@ -30,7 +29,7 @@
           <img class="announcement__header-image" src="{{ announcement.section.avatar }}" alt="avatar">
         </div>
         <mat-card-title class="announcement__list-title">{{ announcement.title }}</mat-card-title>
-        <mat-card-subtitle class="announcement__list-subtitle">
+        <mat-card-subtitle *ngIf="this.authService.isAuthenticated()" class="announcement__list-subtitle">
           <a class="announcement__details" routerLink="/announcement/{{ announcement.announcement_id}}">Details</a>
         </mat-card-subtitle>
       </mat-card-header>

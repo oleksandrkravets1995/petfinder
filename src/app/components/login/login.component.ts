@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
   //   return  null;
   // }
 
-  login(event) {
-    console.log(event)
+  login() {
     this.authService.validate(this.user.email, this.user.password)
       .then((response) => {
         this.authService.setUserInfo({'user': response['user']});
