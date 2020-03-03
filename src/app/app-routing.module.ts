@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
   { path: 'announcements', component: AnnouncementListComponent},
   { path: 'announcement/:id', component: AnnouncementDetailsComponent},
-  { path: 'announcement-add', component: AddAnnouncementComponent},
+  { path: 'announcement-add/:id', component: AddAnnouncementComponent},
   { path: 'announcement-update/:id', component: UpdateAnnouncementComponent},
   { path: 'cabinet-user/:id', component: UsersCabinetComponent},
   { path: 'cabinet-manager', component: ManagerCabinetComponent},

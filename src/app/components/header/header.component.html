@@ -72,7 +72,7 @@
               </button>
             </a>
 
-            <a class="header__button-menu__link" routerLink="announcement-add">
+            <a class="header__button-menu__link" routerLink="announcement-add/{{ this.authService.user.user.user_id}}">
               <button mat-menu-item>
                 <mat-icon>fiber_new</mat-icon>
                 <span>New announcement</span>

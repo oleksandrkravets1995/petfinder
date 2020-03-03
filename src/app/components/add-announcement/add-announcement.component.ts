@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {SectionsHttpService} from '../../services/sections-http.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthService} from '../../services/auth.service';
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -27,12 +28,13 @@ export class AddAnnouncementComponent implements OnInit {
 
   constructor(private httpUser: AddAnnouncementHttpService, private httpSections: SectionsHttpService,
               private snackBar: MatSnackBar,
+              private route: ActivatedRoute,
               private authService: AuthService) { }
 
 
   ngOnInit() {
     this.pets = this.retrieveSections();
-    this.userId = this.authService.user.user.user_id;
+
 
     this.form = new FormGroup({
       title: new FormControl('', Validators.required),
@@ -62,7 +64,7 @@ export class AddAnnouncementComponent implements OnInit {
       images: [{image: this.announcement.image}],
       description: this.announcement.description,
       sections_id: this.selectedPet,
-      user_id: this.userId,
+      user_id: this.route.snapshot.paramMap.get('id'),
       status: 'NOT_VERIFY'
     };
 
